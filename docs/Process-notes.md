@@ -54,10 +54,56 @@ git remote add origin https://github.com/CodeNovice01/tamabase.git
 # 新しいSSH鍵（ed25519方式）を作成して、GitHub用に使うよ
 # コメントにメールアドレスを入れて、鍵ファイル名を「id_rsa_github.tamabase」と指定して保存するよ
 
-\\wsl.localhost\Ubuntu\home\sankplan\.ssh
-このフォルダへ移動
+# \\wsl.localhost\Ubuntu\home\sankplan\.ssh
+# このフォルダへ移動
+cd .ssh
 
 ssh-keygen -t ed25519 -C "sankplan@gmail.com" -f "id_rsa_github.tamabase"
+
+パスフレーズは入力しない（したほうが安全だが、作業工程が増えるデメリットも）
+# 既存のフォルダをGitHubリポジトリにリンクする
+# Githubで登録する
+https://github.com/CodeNovice01/tamabase.git
+
+
+
+# 次に~/.ssh/configに読み分けの記載をします。
+# ローカルにつくりFTPでアップする。
+
+
+		
+Host github.tamabase
+HostName github.com
+User git
+Port 22
+IdentityFile ~/.ssh/id_rsa_github.tamabase
+TCPKeepAlive yes
+IdentitiesOnly yes
+
+
+# 作成した公開鍵（id_rsa_github.tamabase.pub）の中身を表示して
+# GitHubなどにコピペできるようにするよ
+cat .ssh/id_rsa_github.tamabase.pub
+
+
+
+GitHubに貼り付ける
+GitHubを開く
+
+自分のプロフィールアイコン → 「Settings（設定）」に行く
+
+「New SSH key」を押す
+
+Titleにわかりやすい名前を入力（例：tamabaseとか）
+
+さっきコピーしたキーを「Key」欄にペタッと貼り付ける
+
+「Add SSH key」を押す
+
+これで登録完了〜〜〜🎉✨
+
+
+
 
 ```
 
