@@ -51,6 +51,11 @@ git remote add origin https://github.com/CodeNovice01/tamabase.git
 
 
 
+# 新しいSSH鍵（ed25519方式）を作成して、GitHub用に使うよ
+# コメントにメールアドレスを入れて、鍵ファイル名を「id_rsa_github.tamabase」と指定して保存するよ
+
+\\wsl.localhost\Ubuntu\home\sankplan\.ssh
+このフォルダへ移動
 
 ssh-keygen -t ed25519 -C "sankplan@gmail.com" -f "id_rsa_github.tamabase"
 
