@@ -166,9 +166,12 @@ ssh -T git@github.tamabase
 ```
 
 
-# ローカル側
+# sorcetree
 
 ```bash
+# 既存のリモートリポジトリのURLを新しいSSH形式のURLに変更するよ
+git remote set-url origin git@github.com:CodeNovice01/tamabase.git
+
 
 ```
 
