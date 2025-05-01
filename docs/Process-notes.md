@@ -30,6 +30,9 @@ composer require laravel/sail --dev
 # 8. sail の初期設定を実行（サービスを選択）
 php artisan sail:install
 
+# アプリケーションの秘密鍵を新しく生成して、.envファイルに設定するよ
+sail artisan key:generate
+
 
 ```
 
@@ -46,17 +49,42 @@ git init
 git remote add origin https://github.com/CodeNovice01/tamabase.git
 
 
+
+
+
+ssh-keygen -t ed25519 -C "sankplan@gmail.com" -f "id_rsa_github.tamabase"
+
 ```
 
 
 ```bash
 
 ```
-
+# sorcetreeでGitHubと連動
 
 ```bash
+sorcetreeでフォルダを開くと連動されるがエラーがでる。
+これを修正。sorecetreeでターミナルを開く。
+
+# WSL上の特定ディレクトリ（tamabase）を、グローバル設定で「安全なGit作業ディレクトリ」に追加するよ
+git config --global --add safe.directory '%(prefix)///wsl.localhost/Ubuntu/home/sankplan/tamabase'
+
+
+.gitconfigファイルに下記の内容を追記する
+
+# Gitの設定（safe.directory）で、このプロジェクトフォルダを「安全な作業ディレクトリ」として明示的に登録するよ
+# WSL（Windows Subsystem for Linux）上のUbuntu環境を使っている場合に特に必要になる設定だね
+
+[safe]
+bareRepository = explicit
+directory = %(prefix)///wsl.localhost/Ubuntu/home/sankplan/tamabase
 
 ```
+
+
+
+
+
 
 
 ```bash

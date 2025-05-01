@@ -1,0 +1,3 @@
+[safe]
+bareRepository = explicit
+directory = %(prefix)///wsl.localhost/Ubuntu/home/sankplan/tamabase
