@@ -159,10 +159,6 @@ chmod 600 ~/.ssh/id_rsa_github.tamabase
 # ターミナル（PowerShell）
 
 ssh -T git@github.tamabase
-
-# サーバー側
-```bash
-
 ```
 
 
@@ -172,6 +168,33 @@ ssh -T git@github.tamabase
 # 既存のリモートリポジトリのURLを新しいSSH形式のURLに変更するよ
 git remote set-url origin git@github.com:CodeNovice01/tamabase.git
 
+```
+
+
+
+# サーバー側
+```bash
+# フォルダへ移動してクローン
+# SSH経由で、GitHubの「tamabase」リポジトリをクローン（コピー）してくるよ
+git clone git@github.tamabase:CodeNovice01/tamabase.git
+
+# フォルダ名を決定できる
+git clone git@github.tamabase:CodeNovice01/tamabase.git tamabase
+
+# Composerのインストール
+# composer install コマンドは、
+
+# プロジェクトに必要な依存関係をインストールするためのものです。
+
+composer install
+
+
+# .envで変更
+.envを追加します。
+
+# artisanコマンドでキーを生成
+# 以下のコマンドを実行して暗号化キーを生成し、.envファイルに設定します：
+php artisan key:generate
 
 ```
 
