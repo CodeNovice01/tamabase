@@ -140,6 +140,26 @@ Titleにわかりやすい名前を入力（例：tamabaseとか）
 
 ```
 
+
+# サーバー側
+```bash
+
+サーバーにFTPでキーファイルをアップ
+
+# ssh鍵の準備
+# 新しい SSH キーを生成するの手順にしたがって鍵を作成します。
+# .sshフォルダでssh-keygenコマンドを叩いてssh鍵を作成します。
+cd .ssh
+
+# ※ファイルのパーミッションを厳しく設定
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_rsa_github.tamabase
+
+# configファイルに登録したHostで、正しくssh接続ができることを確認します。
+# ターミナル（PowerShell）
+
+ssh -T git@github.tamabase
+
 # サーバー側
 ```bash
 
@@ -153,6 +173,8 @@ Titleにわかりやすい名前を入力（例：tamabaseとか）
 ```
 
 
+```bash
+---
 
 
 
@@ -160,10 +182,8 @@ Titleにわかりやすい名前を入力（例：tamabaseとか）
 
 
 
-# ※ファイルのパーミッションを厳しく設定
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/id_rsa_github.tamabase
-```
+
+
 
 
 
