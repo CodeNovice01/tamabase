@@ -33,4 +33,5 @@ sail artisan migrate:status
 rm -rf bootstrap/cache/*.php
 
 
-
+# システムのPATHにPHP 8.3の実行ファイルの場所を追加して、コマンドラインでPHP 8.3を使えるようにするよ
+export PATH="/usr/local/php/8.3/bin:$PATH"
