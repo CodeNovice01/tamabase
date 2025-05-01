@@ -37,6 +37,30 @@ sail artisan key:generate
 ```
 
 
+
+
+
+# sorcetreeでGitHubと連動
+
+```bash
+sorcetreeでフォルダを開くと連動されるがエラーがでる。
+これを修正。sorecetreeでターミナルを開く。
+
+# WSL上の特定ディレクトリ（tamabase）を、グローバル設定で「安全なGit作業ディレクトリ」に追加するよ
+git config --global --add safe.directory '%(prefix)///wsl.localhost/Ubuntu/home/sankplan/tamabase'
+
+
+.gitconfigファイルに下記の内容を追記する
+
+# Gitの設定（safe.directory）で、このプロジェクトフォルダを「安全な作業ディレクトリ」として明示的に登録するよ
+# WSL（Windows Subsystem for Linux）上のUbuntu環境を使っている場合に特に必要になる設定だね
+
+[safe]
+bareRepository = explicit
+directory = %(prefix)///wsl.localhost/Ubuntu/home/sankplan/tamabase
+
+```
+
 # git登録
 
 ```bash
@@ -49,8 +73,6 @@ git init
 git remote add origin https://github.com/CodeNovice01/tamabase.git
 
 
-
-
 # 新しいSSH鍵（ed25519方式）を作成して、GitHub用に使うよ
 # コメントにメールアドレスを入れて、鍵ファイル名を「id_rsa_github.tamabase」と指定して保存するよ
 
@@ -60,18 +82,17 @@ cd .ssh
 
 ssh-keygen -t ed25519 -C "sankplan@gmail.com" -f "id_rsa_github.tamabase"
 
+
 パスフレーズは入力しない（したほうが安全だが、作業工程が増えるデメリットも）
+
 # 既存のフォルダをGitHubリポジトリにリンクする
 # Githubで登録する
 https://github.com/CodeNovice01/tamabase.git
 
 
-
 # 次に~/.ssh/configに読み分けの記載をします。
 # ローカルにつくりFTPでアップする。
 
-
-		
 Host github.tamabase
 HostName github.com
 User git
@@ -103,32 +124,17 @@ Titleにわかりやすい名前を入力（例：tamabaseとか）
 これで登録完了〜〜〜🎉✨
 
 
-
-
+# ※ファイルのパーミッションを厳しく設定
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_rsa_github.tamabase
 ```
 
 
+
+#　サーバー側での作業
 ```bash
 
-```
-# sorcetreeでGitHubと連動
 
-```bash
-sorcetreeでフォルダを開くと連動されるがエラーがでる。
-これを修正。sorecetreeでターミナルを開く。
-
-# WSL上の特定ディレクトリ（tamabase）を、グローバル設定で「安全なGit作業ディレクトリ」に追加するよ
-git config --global --add safe.directory '%(prefix)///wsl.localhost/Ubuntu/home/sankplan/tamabase'
-
-
-.gitconfigファイルに下記の内容を追記する
-
-# Gitの設定（safe.directory）で、このプロジェクトフォルダを「安全な作業ディレクトリ」として明示的に登録するよ
-# WSL（Windows Subsystem for Linux）上のUbuntu環境を使っている場合に特に必要になる設定だね
-
-[safe]
-bareRepository = explicit
-directory = %(prefix)///wsl.localhost/Ubuntu/home/sankplan/tamabase
 
 ```
 
