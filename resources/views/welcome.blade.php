@@ -12,19 +12,12 @@
                 // 📦 表示するカード情報を配列で定義（アイコン名・タイトル・リンクURL）
                 $cards = [
                     ['title' => 'ダッシュボード', 'url' => '/admin', 'icon' => 'home'],
-                    ['title' => 'ユーザー管理', 'url' => route('users.index'), 'icon' => 'users'],
                     ['title' => '設定', 'url' => '/settings', 'icon' => 'settings'],
                     ['title' => 'ダッシュボード', 'url' => '/admin', 'icon' => 'home'],
-                    ['title' => 'ニュース一覧', 'url' => route('news.index'), 'icon' => 'newspaper'],
-                    ['title' => 'ユーザー管理', 'url' => route('users.index'), 'icon' => 'users'],
                     ['title' => '設定', 'url' => '/settings', 'icon' => 'settings'],
                     ['title' => 'ダッシュボード', 'url' => '/admin', 'icon' => 'home'],
-                    ['title' => 'ニュース一覧', 'url' => route('news.index'), 'icon' => 'newspaper'],
-                    ['title' => 'ユーザー管理', 'url' => route('users.index'), 'icon' => 'users'],
                     ['title' => '設定', 'url' => '/settings', 'icon' => 'settings'],
                     ['title' => 'ダッシュボード', 'url' => '/admin', 'icon' => 'home'],
-                    ['title' => 'ニュース一覧', 'url' => route('news.index'), 'icon' => 'newspaper'],
-                    ['title' => 'ユーザー管理', 'url' => route('users.index'), 'icon' => 'users'],
                     ['title' => '設定', 'url' => '/settings', 'icon' => 'settings'],
                 ];
             @endphp

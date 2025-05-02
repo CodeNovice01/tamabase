@@ -1,33 +1,26 @@
 <!DOCTYPE html>
-<html lang="ja" data-theme="retro" class="min-h-screen">
-
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="retro" class="min-h-screen">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- iOS向け設定 -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
 
-    <link rel="manifest" href="{{ asset('manifest.json') }}">
-    <meta name="theme-color" content="#000000">
-    <link rel="apple-touch-icon" href="{{ asset('/images/icons/icon-152x152.png') }}">
+    <title>Laravel</title>
 
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <!-- Scripts -->
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+
+    {{-- ViteでビルドされたCSSとJSファイルを読み込むためのディレクティブだよ --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+
 </head>
+
 
 
 <body class="fi-body fi-panel-admin min-h-screen font-normal">
@@ -122,8 +115,6 @@
                         @php
                             $menuItems = [
                                 ['label' => 'ダッシュボード', 'url' => '/admin', 'icon' => 'home'],
-                                ['label' => 'ニュース一覧', 'url' => route('news.index'), 'icon' => 'newspaper'],
-                                ['label' => 'ニュースパネル', 'url' => '/news-panel', 'icon' => 'file-text'],
                                 ['label' => 'デザインルール', 'url' => '/admin', 'icon' => 'pencil'],
                                 ['label' => 'ディレクション', 'url' => '/admin', 'icon' => 'clipboard-check'],
                                 ['label' => 'ナレッジ共有', 'url' => '/admin', 'icon' => 'book-open'],
