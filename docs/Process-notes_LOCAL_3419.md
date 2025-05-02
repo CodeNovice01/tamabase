@@ -164,12 +164,10 @@ git remote set-url origin git@github.com:CodeNovice01/tamabase.git
 .env や .env.local はセキュリティのため .gitignore に追加しておくこと。
 .env*
 
-
 ```
 
 
 
-<<<<<<< HEAD
 
 
 ## GitHubと連携し、Sourcetreeで快適に管理！
@@ -186,20 +184,11 @@ PowerShellでサーバーにプル＆構築
 
 
 
-=======
-◎ sorcetreeでGitHubと連動
-
-#　サーバー側での作業
->>>>>>> 日本語化
 
 ```bash
 
 
-<<<<<<< HEAD
 
-=======
-```
->>>>>>> 日本語化
 
 
 
@@ -224,46 +213,21 @@ PowerShellでサーバーにプル＆構築
 
 
 
-◎ 日本語データの追加
 
 #　サーバー側での作業
 ```bash
-#　メニューやメッセージの日本語翻訳ファイルを用意して適切な場所に配置する。
-#　プロジェクト直下のlangフォルダを作成し、その中に翻訳ファイルを置きます。
 
-sail artisan lang:publish
-
-
-
-以下のファイルが追加されます。
-
-auth.php　認証用
-pagination.php　ページネーション用
-passwords.php　パスワード用
-validation.php　バリデーション用
-
-
-# 多言語対応の翻訳パッケージ（laravel-lang/lang）をインストールするよ
-sail composer require laravel-lang/lang
-
-# laravel-lang パッケージを使って、翻訳ファイルを最新の状態に更新するよ
-sail artisan lang:update
 
 
 ```
 
-◎ フォントをNoto Sans JPに変更する
+
+
+
+
+
 
 ```bash
-resources/css/app.css
- --font-sans: "Noto Sans JP", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
-
-ヘッダーに追加
- {{-- ViteでビルドされたCSSとJSファイルを読み込むためのディレクティブだよ --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-
 
 ```
 

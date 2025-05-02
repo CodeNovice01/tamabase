@@ -1,10 +1,6 @@
 {
   "resources/css/app.css": {
-<<<<<<< HEAD
-    "file": "assets/app-B6PGQ-Je.css",
-=======
     "file": "assets/app-O6aD7m_V.css",
->>>>>>> 日本語化
     "src": "resources/css/app.css",
     "isEntry": true
   },
