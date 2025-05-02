@@ -90,3 +90,17 @@ textarea:focus[data-flux-control],
 select:focus[data-flux-control] {
   @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
 }
+
+
+
+/* ====== 6. プラグイン読み込み（最後） ====== */
+
+/* DaisyUIのプラグインを読み込んで、テーマ設定もしているよ */
+@plugin "daisyui" {
+  themes:
+  /* デフォルトで "cmyk" テーマを使うよ */
+    retro --default, 
+          
+    /* ユーザーがダークモードを好んでたら "night" テーマを使うよ */
+    night --prefersdark;  
+}
