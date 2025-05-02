@@ -196,11 +196,19 @@ composer install
 # 以下のコマンドを実行して暗号化キーを生成し、.envファイルに設定します：
 php artisan key:generate
 
+
 ```
 
 
+
+◎ sorcetreeでGitHubと連動
+
+#　サーバー側での作業
+
 ```bash
----
+
+
+```
 
 
 
@@ -209,18 +217,26 @@ php artisan key:generate
 
 
 
-
-
-
+◎ 日本語データの追加
 
 #　サーバー側での作業
 ```bash
+#　メニューやメッセージの日本語翻訳ファイルを用意して適切な場所に配置する。
+#　プロジェクト直下のlangフォルダを作成し、その中に翻訳ファイルを置きます。
 
-
+sail artisan lang:publish
 
 ```
 
+以下のファイルが追加されます。
 
+auth.php　認証用
+
+pagination.php　ページネーション用
+
+passwords.php　パスワード用
+
+validation.php　バリデーション用
 
 
 
