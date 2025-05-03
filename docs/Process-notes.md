@@ -395,10 +395,52 @@ resources\views\components\logo.blade.php
 
 
 ```
+
+
+
+◎ リッチエディタに変更する
+# 
 ```bash
+# app\Filament\Resources\NewsResource.php
+# このページを編集する
+
+    public static function form(Form $form): Form
+    {
+        return $form
+
+            ->schema([
+                // タイトル入力フィールド。必須かつ最大255文字
+                Forms\Components\TextInput::make('title')
+                    ->required()
+                    ->maxLength(255),
+                    RichEditor::make('body')
+                    ->label('本文')
+                    ->required()
+                    ->columnSpanFull() // 横幅を全体に広げて見やすくするよ
+                    ->label('本文')
+                    ->toolbarButtons([
+                        'attachFiles',
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'codeBlock',
+                        'h2',
+                        'h3',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'underline',
+                        'undo',
+                    ])
+                    ->columnSpan('full'),
+            ]);
+    }
 
 
 ```
+
 
 ◎ タイトル
 # 
