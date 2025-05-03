@@ -473,20 +473,43 @@ Route::get('/news-images/{filename}', [NewsImageController::class, 'show'])
 ```
 
 
-◎ filament基本完成（成功）
-# 
+◎ 実装：記事一覧と選択式の詳細表示（Livewireコンポーネント）
+
 ```bash
-# 
+# @tailwindcss/typographyをインストール
+
+npm install -D @tailwindcss/typography
+
+# Livewireコンポーネント NewsBrowser を作成
+
 
 php artisan make:livewire NewsBrowser
-二つのページができる
-CLASS: app/Livewire/NewsBrowser.php
-VIEW:  resources/views/livewire/news-browser.blade.php
+# 作成ファイル：
+app/Livewire/NewsBrowser.php
+resources/views/livewire/news-browser.blade.php
+
+# News一覧と選択記事の詳細表示ロジックを NewsBrowser に実装
+# $selectedNews をプロパティとして定義
+
+# selectNews() メソッドでクリックした記事を表示
+
+# render() 内で一覧を取得
+
+NewsBrowser.php
+
+
+# Livewireビューに記事一覧と詳細表示の2カラムUIを実装
+
+# app/Livewire/NewsBrowser.php
+
+# 記事本文をHTMLとして安全に表示（{!! !!}）に変更
+
+# /news ページに Livewireコンポーネント NewsBrowser を表示するルートを追加
 
 ```
 
 
-◎ タイトル
+◎ リアルタイム検索をつける
 # 
 ```bash
 # 
