@@ -269,8 +269,23 @@ php artisan filament:install --panels
 ```
 
 
+
+◎ 本番環境でもFilamentの管理画面をインストール
+```bash
+# Filamentの管理画面パッケージ（バージョン3.3系）をインストールするよ
+# -Wオプションで、依存関係もまとめて調整してくれるよ
+composer require filament/filament:"^3.3" -W
+
+# Filamentをインストールして、パネル（管理画面）のセットアップを行うよ
+php artisan filament:install --panels
+
+```
+
+◎ マイグレーションファイル生成
 ```bash
 
+#news modelを作成
+sail php artisan make:model -m News
 
 
 ```
