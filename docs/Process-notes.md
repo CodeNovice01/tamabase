@@ -442,7 +442,7 @@ resources\views\components\logo.blade.php
 ```
 
 
-◎ タイトル
+◎ filament基本完成（成功）
 # 
 ```bash
 # 
