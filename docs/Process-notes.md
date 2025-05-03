@@ -478,6 +478,11 @@ Route::get('/news-images/{filename}', [NewsImageController::class, 'show'])
 ```bash
 # 
 
+php artisan make:livewire NewsBrowser
+二つのページができる
+CLASS: app/Livewire/NewsBrowser.php
+VIEW:  resources/views/livewire/news-browser.blade.php
+
 ```
 
 
