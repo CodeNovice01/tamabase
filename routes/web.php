@@ -4,6 +4,11 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsImageController;
+
+Route::get('/news-images/{filename}', [NewsImageController::class, 'show'])
+    ->middleware('auth') // ← ログインユーザーのみに制限
+    ->name('news-images.show');
 
 Route::get('/', function () {
     return view('welcome');
