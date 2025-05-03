@@ -10,6 +10,10 @@ Route::get('/news-images/{filename}', [NewsImageController::class, 'show'])
     ->middleware('auth') // ← ログインユーザーのみに制限
     ->name('news-images.show');
 
+Route::get('/news', function () {
+    return view('news.index'); // resources/views/news/index.blade.php を返す
+});
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');

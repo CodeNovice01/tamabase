@@ -18,7 +18,7 @@
     {{-- ViteでビルドされたCSSとJSファイルを読み込むためのディレクティブだよ --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-
+    @livewireStyles
 </head>
 
 
@@ -70,7 +70,7 @@
                             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li>
                                 <a class="justify-between">
-                                    プロフィールsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+                                    プロフィール
                                     <span class="badge">New</span>
                                 </a>
                             </li>
@@ -228,7 +228,7 @@
         }
     </script>
 
-
+    @livewireScripts
 </body>
 
 </html>

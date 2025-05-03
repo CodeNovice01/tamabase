@@ -5,6 +5,10 @@
 /* Tailwindを読み込む */
 @import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Livewire Fluxのスタイル */
 @import "../../vendor/livewire/flux/dist/flux.css";
 
