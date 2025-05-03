@@ -363,37 +363,35 @@ git rm --cached public/*.com.dropbox.attrs
 git rm --cached public/*.Zone.Identifier
 
 
-```
 
-```bash
+# 入力できるように設定
 
+app\Models\News.php
 
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
+class News extends Model
+{
+    // title と body を一括代入できるようにするよ
+    protected $fillable = ['title', 'body'];
+}
 
 
 ```
+
+◎ filamentのロゴを変更する
+# 
 ```bash
+# ここを編集する
+app\Providers\Filament\AdminPanelProvider.php
+
+->brandLogo(fn () => view('components.logo')) // Bladeファイルでロゴ表示
+->homeUrl('/') // ロゴをクリックしたときのリンク先
+
+# components.logo このページをつくる
+resources\views\components\logo.blade.php
+
+<img src="{{ asset('images/logo.svg') }}" alt="TAMABASEロゴ" class="h-6">
 
 
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
 
 
 ```
@@ -401,215 +399,106 @@ git rm --cached public/*.Zone.Identifier
 
 
 ```
-```bash
 
+◎ タイトル
+# 
+```bash
+# 
 
 ```
-```bash
 
+
+◎ タイトル
+# 
+```bash
+# 
 
 ```
-```bash
 
+
+◎ タイトル
+# 
+```bash
+# 
 
 ```
-```bash
 
+
+◎ タイトル
+# 
+```bash
+# 
 
 ```
-```bash
 
+
+◎ タイトル
+# 
+```bash
+# 
 
 ```
-```bash
 
+
+◎ タイトル
+# 
+```bash
+# 
 
 ```
-```bash
 
+
+◎ タイトル
+# 
+```bash
+# 
 
 ```
-```bash
 
+
+◎ タイトル
+# 
+```bash
+# 
 
 ```
-```bash
 
+
+◎ タイトル
+# 
+```bash
+# 
 
 ```
-```bash
 
+
+◎ タイトル
+# 
+```bash
+# 
 
 ```
-```bash
 
+
+◎ タイトル
+# 
+```bash
+# 
 
 ```
-```bash
 
+
+◎ タイトル
+# 
+```bash
+# 
 
 ```
+
+
+◎ タイトル
+# 
 ```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
-
-```
-```bash
-
+# 
 
 ```
