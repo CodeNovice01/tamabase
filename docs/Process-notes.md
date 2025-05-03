@@ -169,7 +169,6 @@ git remote set-url origin git@github.com:CodeNovice01/tamabase.git
 
 
 
-<<<<<<< HEAD
 
 
 ## GitHubと連携し、Sourcetreeで快適に管理！
@@ -186,20 +185,10 @@ PowerShellでサーバーにプル＆構築
 
 
 
-=======
-◎ sorcetreeでGitHubと連動
-
-#　サーバー側での作業
->>>>>>> 日本語化
 
 ```bash
 
 
-<<<<<<< HEAD
-
-=======
-```
->>>>>>> 日本語化
 
 
 
