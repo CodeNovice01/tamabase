@@ -57,6 +57,16 @@ class AppServiceProvider extends ServiceProvider
                         select {
                         caret-color: transparent;
                         }
+
+
+                        .fi-main {
+                        max-width: 1200px !important;
+                        }
+                        /* --- フォームの幅を制限 --- */
+                        .fi-input-wrp {
+                        max-width: 860px !important;
+                        }
+
                     
                 </style>
                 

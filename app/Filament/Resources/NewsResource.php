@@ -62,6 +62,7 @@ class NewsResource extends Resource
                     ->fileAttachmentsDirectory('private-news') // ← private-news フォルダは app/private の下
                     ->fileAttachmentsVisibility('private')
                     ->columnSpan('full'),
+
             ]);
     }
 
