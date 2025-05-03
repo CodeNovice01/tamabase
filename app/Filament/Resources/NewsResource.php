@@ -32,9 +32,12 @@ class NewsResource extends Resource
             ->schema([
                 // タイトル入力フィールド。必須かつ最大255文字
                 Forms\Components\TextInput::make('title')
+                    ->label('タイトル')
                     ->required()
                     ->maxLength(255),
-                    RichEditor::make('body')
+
+                // RichEditor（記事本文用のWYSIWYGエディタ）
+                RichEditor::make('body')
                     ->label('本文')
                     ->required()
                     ->columnSpanFull() // 横幅を全体に広げて見やすくするよ
@@ -55,6 +58,9 @@ class NewsResource extends Resource
                         'underline',
                         'undo',
                     ])
+                    ->fileAttachmentsDisk('private') // ← diskを変更
+                    ->fileAttachmentsDirectory('private-news') // ← private-news フォルダは app/private の下
+                    ->fileAttachmentsVisibility('private')
                     ->columnSpan('full'),
             ]);
     }
