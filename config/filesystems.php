@@ -60,6 +60,14 @@ return [
             'report' => false,
         ],
 
+    // ✅ これを必ず追加してください！
+    'private' => [
+        'driver' => 'local',
+        'root' => storage_path('app/private'),
+        'visibility' => 'private',
+        'serve' => true,
+    ],
+    
     ],
 
     /*
