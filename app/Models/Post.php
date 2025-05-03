@@ -9,6 +9,5 @@ class News extends Model
 {
     use HasFactory;
 
-    // title と body を一括代入できるようにするよ
-    protected $fillable = ['title', 'body'];
+    
 }
