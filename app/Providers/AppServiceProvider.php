@@ -20,16 +20,49 @@ class AppServiceProvider extends ServiceProvider
             fn (): string => '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">'
         );
 
-        // body にフォントを適用する最小CSSを head の終わりに挿入
+        // body に適用するCSS
         Filament::registerRenderHook(
             'panels::head.end',
             fn (): string => '
+
+
                 <style>
                     body {
                         font-family: "Noto Sans JP", sans-serif;
                     }
+
+                    /* 全体のキャレットを消す */
+                    body * {
+                        caret-color: transparent;
+                    }
+
+                      /* --- 入力やテキストエリア、コンテンツ編集エリアなどは元に戻す --- */
+                        input,
+                        input[type="text"],
+                        input[type="email"],
+                        input[type="password"],
+                        textarea,
+                        [contenteditable="true"] {
+                        caret-color: #333 !important;
+                        }
+                        
+                        form * {
+                        caret-color: #333 !important;
+                        }
+                        
+                        /* --- キャレットを不要なものに再度上書きで消す --- */
+                        input[type="checkbox"],
+                        input[type="radio"],
+                        button,
+                        select {
+                        caret-color: transparent;
+                        }
+                    
                 </style>
-            '
+                
+                '
+
+
         );
     }
 }
