@@ -513,7 +513,7 @@ NewsBrowser.php
 # 
 ```bash
 # 
-
+livewireが起動しているかを確認する
 ```
 
 
