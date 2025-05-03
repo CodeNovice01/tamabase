@@ -25,3 +25,7 @@ yarn-error.log
 /public/favicon.svg
 /public/favicon.ico
 /public/apple-touch-icon.png
+
+# Windows/Dropbox のメタファイルを除外
+*.com.dropbox.attrs
+*.Zone.Identifier
