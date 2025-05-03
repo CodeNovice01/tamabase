@@ -433,11 +433,42 @@ resources\views\components\logo.blade.php
                         'strike',
                         'underline',
                         'undo',
-                    ])
+                    ]),
+
+                    # ※ログイン時にしか画像が見れないように設定したい為、ここが必要
+                    # filesystems.php に private disk を明示追加し
+                    # NewsResource.phpでは下記のように追記する
+
+                    ->fileAttachmentsDisk('private') // ← diskを変更
+                    ->fileAttachmentsDirectory('private-news') // ← private-news フォルダは app/private の下
+                    ->fileAttachmentsVisibility('private')
+
+                    
                     ->columnSpan('full'),
             ]);
     }
 
+# tamabase/config/filesystems.php
+
+'private' => [
+    'driver' => 'local',
+    'root' => storage_path('app/private'), // ← 今の構成と一致
+    'serve' => true,
+    'visibility' => 'private',
+],
+
+
+
+# tamabase/routes/web.php
+
+use App\Http\Controllers\NewsImageController;
+
+Route::get('/news-images/{filename}', [NewsImageController::class, 'show'])
+    ->middleware('auth') // ← ログインユーザーのみに制限
+    ->name('news-images.show');
+
+# tamabase/app/Http/Controllers/NewsImageController.php
+このページを追加
 
 ```
 
