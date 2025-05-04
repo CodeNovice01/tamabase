@@ -5,8 +5,6 @@
 /* Tailwindを読み込む */
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
 
 /* Livewire Fluxのスタイル */
@@ -103,8 +101,25 @@ select:focus[data-flux-control] {
 @plugin "daisyui" {
   themes:
   /* デフォルトで "cmyk" テーマを使うよ */
-    retro --default, 
+    light --default, 
           
     /* ユーザーがダークモードを好んでたら "night" テーマを使うよ */
     night --prefersdark;  
+}
+
+.card {
+  figure {
+      display: flex;
+      max-width: 100%!important;
+
+width: 100%!important;
+      align-items: center;
+      justify-content: center;
+  }
+}
+
+figure > a > img{
+  max-width: 100%!important;
+
+width: 100%!important;
 }

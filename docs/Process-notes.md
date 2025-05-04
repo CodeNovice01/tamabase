@@ -514,6 +514,37 @@ NewsBrowser.php
 ```bash
 # 
 livewireが起動しているかを確認する
+
+# レイアウトBladeにLivewireとViteの読み込みを追加
+
+# tamabase/resources/views/layouts/app.blade.php
+# テスト的に基本的な設定のみ
+
+
+# ニュースブラウザLivewireビューを作成（リアルタイム検索＋2カラムUI）
+
+# tamabase/resources/views/livewire/news-browser.blade.php
+
+
+
+# LivewireコンポーネントNewsBrowserを作成（検索・選択・切替ロジック対応）
+
+# tamabase/app/Livewire/NewsBrowser.php
+
+
+
+# ニュース一覧ページにLivewireコンポーネントを埋め込み
+
+# tamabase/resources/views/news/index.blade.php
+
+
+
+# app.cssにdaisyUIやtypography対応のスタイルを追加
+
+# tamabase/resources/css/app.css
+
+
+# 
 ```
 
 

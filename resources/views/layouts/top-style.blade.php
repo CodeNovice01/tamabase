@@ -18,7 +18,7 @@
     {{-- ViteでビルドされたCSSとJSファイルを読み込むためのディレクティブだよ --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    @livewireStyles
+    <livewireStyles />
 </head>
 
 
@@ -228,7 +228,7 @@
         }
     </script>
 
-    @livewireScripts
+    <livewireScripts />
 </body>
 
 </html>
