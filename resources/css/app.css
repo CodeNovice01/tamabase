@@ -136,6 +136,17 @@
 }
 
 
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.card figure {
+  margin-top: 20px;
+}
+
+
+
+
 @keyframes fade-in {
   from {
       opacity: 0;
@@ -147,9 +158,20 @@
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
+@keyframes scroll-title {
+  0% {
+      transform: translateX(0%);
+  }
+  100% {
+      transform: translateX(-50%);
+  }
 }
+
+.animate-scroll-title {
+  animation: scroll-title 4s linear forwards;
+}
+
+
 
 
 

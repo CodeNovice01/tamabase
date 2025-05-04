@@ -21,9 +21,12 @@
                 @forelse ($newsList as $news)
                     <li>
                         <button wire:click="selectNews({{ $news->id }})"
-                            class="btn btn-block justify-start text-left truncate">
-                            {{ $news->title }}
+                            class="btn btn-block justify-start text-left overflow-hidden group">
+                            <span class="inline-block whitespace-nowrap truncate group-hover:animate-scroll-title">
+                                {{ $news->title }}
+                            </span>
                         </button>
+
                     </li>
                 @empty
                     <li class="text-gray-400 text-sm">該当する記事がありません</li>
