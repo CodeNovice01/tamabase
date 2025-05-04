@@ -7,26 +7,58 @@ use App\Models\News;
 
 class NewsBrowser extends Component
 {
-    // 選択されたニュースを保持するプロパティだよ（初期状態はnull）
+    // 検索キーワードを保持するプロパティ（検索フォームと連動してるよ）
+    public $search = '';
+
+    // 現在選択されているニュース記事を保持するプロパティ
     public $selectedNews = null;
 
+    // サイドメニューの開閉状態を管理するためのフラグ（モバイル対応などで使う想定）
+    public $isMenuOpen = false;
+
     /**
-     * ニュースが選択されたときに呼び出されるメソッドだよ
-     * 引数として受け取ったニュースIDを使って、そのニュースを取得・保持するよ
+     * サイドメニューの開閉を切り替えるメソッドだよ
      */
-    public function selectNews($newsId)
+    public function toggleMenu()
     {
-        $this->selectedNews = News::find($newsId); // IDでニュースを検索して代入
+        $this->isMenuOpen = !$this->isMenuOpen;
     }
 
     /**
-     * コンポーネントの表示に使うビューを返すメソッドだよ
-     * 最新のニュース一覧を取得してビューに渡しているよ
+     * ニュースが選択されたときに、そのIDから記事を取得して表示するためのメソッドだよ
+     *
+     * @param int $id 表示するニュース記事のID
+     */
+    public function selectNews($id)
+    {
+        $this->selectedNews = News::find($id);
+    }
+
+    /**
+     * 検索ワードに応じてニュース一覧を取得するcomputedプロパティだよ
+     * 検索が空なら全件、入力があればタイトルや本文にマッチしたものを返すよ
+     *
+     * @return \Illuminate\Support\Collection ニュース一覧のコレクション
+     */
+    public function getNewsListProperty()
+    {
+        return News::query()
+            ->when($this->search, function ($query) {
+                $query->where('title', 'like', '%' . $this->search . '%')
+                      ->orWhere('body', 'like', '%' . $this->search . '%');
+            })
+            ->latest() // 作成日の新しい順に並べるよ
+            ->get();
+    }
+
+    /**
+     * コンポーネントのビューを返すメソッドだよ
+     * newsList は computed プロパティを使っているので $this->newsList で取得されるよ
      */
     public function render()
     {
         return view('livewire.news-browser', [
-            'newsList' => News::orderBy('created_at', 'desc')->get(), // 作成日の新しい順に並べた全ニュース
+            'newsList' => $this->newsList, // getNewsListProperty() の結果がここに渡るよ
         ]);
     }
 }
