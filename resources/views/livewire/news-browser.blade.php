@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
 
     {{-- 🧭 左カラム：検索と一覧 --}}
     <div class="col-span-1 space-y-4">
@@ -42,6 +42,7 @@
     <div class="col-span-2">
         <div class="card bg-base-100 shadow-md p-6 max-w-4xl w-full"
             style="height: calc(100vh - 150px); overflow-y: auto;">
+
             @if ($selectedNews)
                 {{-- 選択されたニュースのタイトルと作成日時 --}}
                 <h2 class="text-2xl font-bold mb-1">{{ $selectedNews->title }}</h2>
@@ -50,10 +51,17 @@
                 {{-- 本文をHTMLとして表示。画像や装飾も含まれるよ --}}
                 <div class="prose max-w-none">
                     {!! preg_replace_callback(
-                        '/https?:\/\/[^\/]+\/storage\/private-news\/([^"?]+)(?:\?[^"]*)?/',
+                        // src= または href= 属性にある private-news の画像URLを対象に
+                        '/(src|href)="https?:\/\/[^\/]+\/storage\/private-news\/([^"?]+)(?:\?[^"]*)?"/',
                         function ($matches) {
-                            return route('news-images.show', ['filename' => $matches[1]]);
+                            // $matches[1] = 'src' or 'href'
+                            // $matches[2] = ファイル名
+                            $attr = $matches[1];
+                            $filename = $matches[2];
+                            $secureUrl = route('news-images.show', ['filename' => $filename]);
+                            return "{$attr}=\"{$secureUrl}\"";
                         },
+                        // 元のHTML本文
                         $selectedNews->body,
                     ) !!}
                 </div>

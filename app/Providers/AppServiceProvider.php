@@ -67,6 +67,16 @@ class AppServiceProvider extends ServiceProvider
                         max-width: 860px !important;
                         }
 
+                        .prose {
+                        padding:30px;
+                        }
+
+                        .prose :where(p):not(:where([class~=not-prose],[class~=not-prose] *)) {
+                        margin-bottom: 0.5em;
+                        margin-top: 0.5em;
+                        font-size: 0.95rem;
+                        }
+
                     
                 </style>
                 
