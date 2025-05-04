@@ -21,7 +21,7 @@
                     <li>
                         {{-- タイトルをクリックすると右側に本文が表示されるよ --}}
                         <button wire:click="selectNews({{ $news->id }})"
-                            class="btn btn-sm btn-outline btn-block justify-start text-left truncate">
+                            class="btn btn-block justify-start text-left truncate">
                             {{ $news->title }}
                         </button>
                     </li>
@@ -35,7 +35,8 @@
 
     {{-- 📄 右カラム：選択されたニュースの本文表示 --}}
     <div class="col-span-2">
-        <div class="card bg-base-100 shadow-md p-6">
+        <div class="card bg-base-100 shadow-md p-6 max-w-4xl w-full"
+            style="height: calc(100vh - 65px); overflow-y: auto;">
             @if ($selectedNews)
                 {{-- 選択されたニュースのタイトルと作成日時 --}}
                 <h2 class="text-2xl font-bold mb-1">{{ $selectedNews->title }}</h2>

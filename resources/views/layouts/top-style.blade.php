@@ -181,7 +181,7 @@
                 @auth
 
                     <!-- メインコンテンツ -->
-                    <main class="fi-main relative mx-auto w-full min-h-[calc(100vh-64px)]" style="padding-top: 64px;">
+                    <main class="fi-main relative mx-auto w-full min-h-[calc(100vh-94px)]" style="padding-top: 94px;">
                         @yield('content')
                     </main>
                     <!-- ログインしていない状態 -->
