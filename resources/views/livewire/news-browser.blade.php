@@ -59,6 +59,11 @@
                             $attr = $matches[1];
                             $filename = $matches[2];
                             $secureUrl = route('news-images.show', ['filename' => $filename]);
+                    
+                            // aタグなら target="_blank" を追加
+                            if ($attr === 'href') {
+                                return "{$attr}=\"{$secureUrl}\" target=\"_blank\"";
+                            }
                             return "{$attr}=\"{$secureUrl}\"";
                         },
                         // 元のHTML本文
