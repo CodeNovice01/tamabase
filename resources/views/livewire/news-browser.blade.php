@@ -6,7 +6,7 @@
             style="height: calc(100vh - 150px); overflow-y: auto;">
             <h2 class="text-lg font-bold mb-2">📋 ニュース一覧</h2>
 
-            {{-- 検索入力フィールド（入力値は Livewire の $search プロパティにバインドされてるよ） --}}
+            {{-- 検索フィールド --}}
             <label class="input input-bordered flex items-center gap-2 mb-4">
                 <input type="text" wire:model.live.debounce.300ms="search" placeholder="検索..." class="grow" />
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 opacity-70" fill="none" viewBox="0 0 24 24"
@@ -16,18 +16,16 @@
                 </svg>
             </label>
 
-            {{-- ニュース記事の一覧表示。検索結果が反映されるよ --}}
+            {{-- ニュース記事の一覧 --}}
             <ul class="space-y-2 max-h-[60vh] overflow-y-auto pr-1">
                 @forelse ($newsList as $news)
                     <li>
-                        {{-- タイトルをクリックすると右側に本文が表示されるよ --}}
                         <button wire:click="selectNews({{ $news->id }})"
                             class="btn btn-block justify-start text-left truncate">
                             {{ $news->title }}
                         </button>
                     </li>
                 @empty
-                    {{-- 該当するニュースがなかった場合の表示 --}}
                     <li class="text-gray-400 text-sm">該当する記事がありません</li>
                 @endforelse
             </ul>
@@ -38,42 +36,85 @@
         </div>
     </div>
 
-    {{-- 📄 右カラム：選択されたニュースの本文表示 --}}
+    {{-- 📄 右カラム：選択されたニュースの本文 --}}
     <div class="col-span-2">
         <div class="card bg-base-100 shadow-md p-6 max-w-4xl w-full"
             style="height: calc(100vh - 150px); overflow-y: auto;">
 
             @if ($selectedNews)
-                {{-- 選択されたニュースのタイトルと作成日時 --}}
                 <h2 class="text-2xl font-bold mb-1">{{ $selectedNews->title }}</h2>
                 <p class="text-sm text-gray-500 mb-4">{{ $selectedNews->created_at->format('Y年n月j日 H:i') }}</p>
 
-                {{-- 本文をHTMLとして表示。画像や装飾も含まれるよ --}}
-                <div class="prose max-w-none">
+                {{-- 本文の表示 --}}
+                <div class="prose max-w-none transition-opacity duration-500 opacity-0 animate-fade-in" id="news-body">
+
                     {!! preg_replace_callback(
-                        // src= または href= 属性にある private-news の画像URLを対象に
                         '/(src|href)="https?:\/\/[^\/]+\/storage\/private-news\/([^"?]+)(?:\?[^"]*)?"/',
                         function ($matches) {
-                            // $matches[1] = 'src' or 'href'
-                            // $matches[2] = ファイル名
                             $attr = $matches[1];
                             $filename = $matches[2];
                             $secureUrl = route('news-images.show', ['filename' => $filename]);
                     
-                            // aタグなら target="_blank" を追加
                             if ($attr === 'href') {
-                                return "{$attr}=\"{$secureUrl}\" target=\"_blank\"";
+                                return "{$attr}=\"#\" data-url=\"{$secureUrl}\" class=\"preview-trigger\"";
                             }
                             return "{$attr}=\"{$secureUrl}\"";
                         },
-                        // 元のHTML本文
                         $selectedNews->body,
                     ) !!}
                 </div>
             @else
-                {{-- 初期状態または未選択時のメッセージ --}}
                 <div class="text-gray-400">← 記事を選択してください</div>
             @endif
         </div>
     </div>
+
+
+    {{-- 🌟 モーダル本体（DaisyUIのdialogタグ） --}}
+    <dialog id="preview_modal" class="modal">
+        <div class="modal-box max-w-4xl">
+            <h3 class="font-bold text-lg mb-2">プレビュー</h3>
+            <div id="preview_content" class="py-2">
+                <!-- 画像やPDFがここに入るよ -->
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn">閉じる</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    {{-- ✨ モーダル表示スクリプト --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('preview_modal');
+            const content = document.getElementById('preview_content');
+
+            document.body.addEventListener('click', function(e) {
+                const trigger = e.target.closest('.preview-trigger');
+                if (!trigger) return;
+
+                e.preventDefault();
+                const url = trigger.getAttribute('data-url');
+
+                content.innerHTML = '';
+
+                if (url.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
+                    content.innerHTML =
+                        `<img src="${url}" class="max-w-full max-h-[70vh] mx-auto rounded-lg transition-opacity duration-500 opacity-0" onload="this.classList.add('opacity-100')" />`;
+
+                } else if (url.match(/\.pdf$/i)) {
+                    content.innerHTML = `<iframe src="${url}" class="w-full h-[70vh] rounded-lg"></iframe>`;
+                } else {
+                    content.innerHTML =
+                        `<a href="${url}" target="_blank" class="text-blue-500 underline">こちらを開く</a>`;
+                }
+
+                modal.showModal();
+            });
+        });
+    </script>
+
+
 </div>
