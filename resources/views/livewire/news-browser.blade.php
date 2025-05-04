@@ -44,7 +44,13 @@
 
                 {{-- 本文をHTMLとして表示。画像や装飾も含まれるよ --}}
                 <div class="prose max-w-none">
-                    {!! $selectedNews->body !!}
+                    {!! preg_replace_callback(
+                        '/https?:\/\/[^\/]+\/storage\/private-news\/([^"?]+)(?:\?[^"]*)?/',
+                        function ($matches) {
+                            return route('news-images.show', ['filename' => $matches[1]]);
+                        },
+                        $selectedNews->body,
+                    ) !!}
                 </div>
             @else
                 {{-- 初期状態または未選択時のメッセージ --}}
