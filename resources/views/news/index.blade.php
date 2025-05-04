@@ -3,5 +3,5 @@
 
 @section('content')
     {{-- Livewire の NewsBrowser コンポーネントを表示するよ --}}
-    @livewire('news-browser')
-@endsection
+    <livewire:news-browser>
+    @endsection
