@@ -548,10 +548,21 @@ livewireが起動しているかを確認する
 ```
 
 
-◎ タイトル
+◎ PWAにする
 # 
 ```bash
-# 
+# tamabase/public/service-worker.js
+# tamabase/public/manifest.json
+
+# tamabase/resources/views/layouts/app.blade.php
+# tamabase/resources/views/layouts/top-style.blade.php
+# tamabase/resources/views/welcome.blade.php
+
+
+
+# ２つのファイルを作成し、ヘッダーへリンクを設置
+tamabase/public/manifest.json
+tamabase/public/service-worker.js
 
 ```
 

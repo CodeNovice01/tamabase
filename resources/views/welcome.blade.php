@@ -5,6 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- PWA manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1e40af">
+
+    <!-- iOS向け -->
+    <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <title>Laravel</title>
 
     <link rel="icon" href="/favicon.ico" sizes="any">
