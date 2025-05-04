@@ -2,7 +2,8 @@
 
     {{-- 🧭 左カラム：検索と一覧 --}}
     <div class="col-span-1 space-y-4">
-        <div class="card bg-base-100 shadow-md p-4">
+        <div class="card bg-base-100 shadow-md p-4 max-w-4xl w-full"
+            style="height: calc(100vh - 150px); overflow-y: auto;">
             <h2 class="text-lg font-bold mb-2">📋 ニュース一覧</h2>
 
             {{-- 検索入力フィールド（入力値は Livewire の $search プロパティにバインドされてるよ） --}}
@@ -30,13 +31,17 @@
                     <li class="text-gray-400 text-sm">該当する記事がありません</li>
                 @endforelse
             </ul>
+
+            <div class="mt-4">
+                {{ $newsList->links() }}
+            </div>
         </div>
     </div>
 
     {{-- 📄 右カラム：選択されたニュースの本文表示 --}}
     <div class="col-span-2">
         <div class="card bg-base-100 shadow-md p-6 max-w-4xl w-full"
-            style="height: calc(100vh - 65px); overflow-y: auto;">
+            style="height: calc(100vh - 150px); overflow-y: auto;">
             @if ($selectedNews)
                 {{-- 選択されたニュースのタイトルと作成日時 --}}
                 <h2 class="text-2xl font-bold mb-1">{{ $selectedNews->title }}</h2>
