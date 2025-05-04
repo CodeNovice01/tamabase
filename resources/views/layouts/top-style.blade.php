@@ -32,6 +32,14 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
+    <!-- Lucide Icons Web Components CDN読み込み -->
+    <script type="module">
+        import {
+            defineCustomElements
+        } from 'https://cdn.jsdelivr.net/npm/lucide@latest/dist/esm/lucide.js';
+        defineCustomElements();
+    </script>
+
     {{-- ViteでビルドされたCSSとJSファイルを読み込むためのディレクティブだよ --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -131,6 +139,9 @@
                         {{-- メニュー定義 --}}
                         @php
                             $menuItems = [
+                                ['label' => 'ダッシュボード', 'url' => '/admin', 'icon' => 'home'],
+                                ['label' => 'News', 'url' => '/news', 'icon' => 'pencil'],
+                                ['label' => 'ディレクション', 'url' => '/admin', 'icon' => 'clipboard-check'],
                                 ['label' => 'ダッシュボード', 'url' => '/admin', 'icon' => 'home'],
                                 ['label' => 'デザインルール', 'url' => '/admin', 'icon' => 'pencil'],
                                 ['label' => 'ディレクション', 'url' => '/admin', 'icon' => 'clipboard-check'],
