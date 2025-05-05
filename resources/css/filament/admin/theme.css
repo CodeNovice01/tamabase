@@ -1,0 +1,22 @@
+/* ==========================
+   🌸 Tailwind & Flux 初期化
+   ========================== */
+
+   @import "tailwindcss";
+   @tailwind utilities;
+   
+   /* Livewire Fluxのスタイル */
+   @import "../../vendor/livewire/flux/dist/flux.css";
+   
+@config 'tailwind.config.js';
+
+
+
+
+/* 
+- py-4：上下のパディングを大きくしてボタンを縦に広げてる
+- text-base：ボタン内の文字サイズをベース（通常サイズ）にしてる
+*/
+.fi-btn {
+  @apply py-4 text-base;
+}

@@ -567,10 +567,27 @@ tamabase/public/service-worker.js
 ```
 
 
-◎ ページ調整
+◎ filamentのボタン調整
 # 
 ```bash
-# 
+
+# カスタムテーマを作成してからカスタマイズする方法
+
+# Filament v3 では、Tailwind CSS を使用してカスタムテーマを作成
+php artisan make:filament-theme
+
+# AdminPanelProvider クラスの panel メソッド内で以下のように指定
+->viteTheme('resources/css/filament/admin/theme.css')
+
+# 一度ビルド
+npm run build
+
+# 実際作成してはみたが、現状で下記ファイルを編集するやりかたをしている。再度検討。
+tamabase/app/Providers/AppServiceProvider.php
+
+
+
+
 
 ```
 

@@ -54,8 +54,9 @@ class AppServiceProvider extends ServiceProvider
                         input[type="checkbox"],
                         input[type="radio"],
                         button,
+                        .fi-btn-label,
                         select {
-                        caret-color: transparent;
+                        caret-color: transparent!important;
                         }
 
 
@@ -76,6 +77,28 @@ class AppServiceProvider extends ServiceProvider
                         margin-top: 0.5em;
                         font-size: 0.95rem;
                         }
+
+
+
+
+                        /* --- フォームの高さ --- */
+                        .fi-input {
+                        padding:10px;}
+
+
+
+                        .fi-simple-header-heading{font-size: 16px;}
+
+
+
+
+
+
+                        /* --- ボタンの高さ --- */
+                        .fi-btn {
+                        padding:16px;}
+
+
 
                     
                 </style>

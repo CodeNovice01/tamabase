@@ -58,6 +58,16 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+
+
+
+
+
+
+
+
+
+
             // パネルの認証ミドルウェアを指定してるよ（ログインユーザーのチェック）
             ->authMiddleware([
                 Authenticate::class,
