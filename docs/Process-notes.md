@@ -592,10 +592,15 @@ tamabase/app/Providers/AppServiceProvider.php
 ```
 
 
-◎ タイトル
+◎ Lucideアイコンを反映させる
 # 
 ```bash
-# 
+# ヘッダーにCDNを追記
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+
 
 ```
 

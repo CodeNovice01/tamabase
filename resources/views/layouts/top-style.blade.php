@@ -39,6 +39,10 @@
         } from 'https://cdn.jsdelivr.net/npm/lucide@latest/dist/esm/lucide.js';
         defineCustomElements();
     </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 
     {{-- ViteでビルドされたCSSとJSファイルを読み込むためのディレクティブだよ --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -112,14 +116,15 @@
                 <input id="my-drawer" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content fixed top-4 left-4 z-51">
                     <!-- Page content here -->
-                    <label for="my-drawer" class=" swap swap-rotate">
-                        <!-- this hidden checkbox controls the state -->
+                    <div class="drawer-content fixed top-4 left-4 z-50">
+                        <label for="my-drawer" class="swap swap-rotate cursor-pointer">
+                            <!-- 開いてないとき（menu） -->
+                            <i data-lucide="menu" class="swap-off w-6 h-6 text-gray-700"></i>
+                            <!-- 開いてるとき（x） -->
+                            <i data-lucide="x" class="swap-on w-6 h-6 text-gray-700"></i>
+                        </label>
 
-                        <!-- hamburger icon -->
-                        <i data-lucide="menu" class="w-6 h-6 text-gray-700"></i>
-
-
-                    </label>
+                    </div>
 
                 </div>
                 <div class="drawer-side">
